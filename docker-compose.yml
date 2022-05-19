@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  scala:
+    build: .
+    volumes:
+      - ./projects:/projects
+    working_dir: /projects
