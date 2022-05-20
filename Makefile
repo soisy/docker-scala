@@ -6,3 +6,6 @@ build:
 
 run:
 	docker-compose run --rm scala bash
+
+push:
+	docker-compose push scala 
