@@ -1,7 +1,14 @@
 version: '3.8'
+volumes:
+  cache:
 services:
   scala:
+    environment:
+      - HOST_USER_ID=${UID:-1000}
+      - HOST_GROUP_ID=${GID:-1000}
     build: .
+    image: ghcr.io/soisy/applied-functional-programming:1
     volumes:
-      - ./projects:/projects
-    working_dir: /projects
+      - ./.cache:/home/me/.cache:rw
+      - ./projects:/home/me/projects
+    working_dir: /home/me/projects
